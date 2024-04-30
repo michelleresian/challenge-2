@@ -10,15 +10,27 @@ const testbrackets4 = "[(])";
 const testbrackets5 = "[()";
 
 //driver function used for display and passing values.
+// Driver function used for display and passing values.
 function checkBrackets() {
+    // Test brackets examples
+    const testBrackets = [
+        "[()]{}{[()()]()}", // balanced
+        "([{}])", // balanced
+        "{(})[]", // not balanced
+        "[(])", // not balanced
+        "[()" // not balanced
+    ];
 
-    //change testbrackets here. makes easire to change in one place.
-    let testbrackets = testbrackets2;
+    // Change testIndex here to test different scenarios
+    const testIndex = 1; // Change this to test different scenarios
 
-    //implement isBalanced function. checks if the bracket string is balanced.
+    // Get the test brackets from the array based on testIndex
+    let testbrackets = testBrackets[testIndex];
+
+    // Implement isBalanced function. Checks if the bracket string is balanced.
     let results = isBalanced(testbrackets);
 
-    //used for display no need to change
+    // Used for display, no need to change
     let msg = "";
 
     if (results == true) {
@@ -27,14 +39,12 @@ function checkBrackets() {
         msg = `Brackets are NOT balanced ==> ${testbrackets}`;
     }
 
-    //display the message
+    // Display the message
     document.getElementById("results").innerHTML = msg;
-
 }
 
-//takes an array of strings and returns the longest one. 
+// Function to check if the brackets are balanced
 function isBalanced(brackets) {
-
     let stack = [];
 
     for (let index = 0; index < brackets.length; index++) {
@@ -43,25 +53,24 @@ function isBalanced(brackets) {
         if (item === '(' || item === '{' || item === '[') {
             stack.push(item);
             continue;
-        }else if (item === ')' || item === '}' || item === ']') {
-
+        } else if (item === ')' || item === '}' || item === ']') {
             if (stack.length === 0) {
-                return false
+                return false;
             }
 
-            check = stack.pop(); 
+            let check = stack.pop();
             switch (item) {
-                case ')' : 
+                case ')':
                     if (check !== '(') {
                         return false;
                     }
                     break;
-                case '}' :
+                case '}':
                     if (check !== '{') {
                         return false;
                     }
                     break;
-                case ']' :
+                case ']':
                     if (check !== '[') {
                         return false;
                     }
@@ -70,6 +79,5 @@ function isBalanced(brackets) {
         }
     }
 
-   return stack.length === 0;
-
+    return stack.length === 0;
 }

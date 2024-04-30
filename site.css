@@ -1,0 +1,39 @@
+
+#results-container {
+    margin-top: 20px;
+}
+
+
+#results {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+#results.balanced {
+    color: #00cc66; 
+}
+
+
+#results.not-balanced {
+    color: #ff4d4d; 
+}
+
+
+.checkMark {
+    font-size: 1.5rem;
+    color: #00cc66; 
+
+.xMark {
+    font-size: 1.5rem;
+    color: #ff4d4d; 
+}
+
+
+.examples td {
+    font-size: 1.5rem;
+}
